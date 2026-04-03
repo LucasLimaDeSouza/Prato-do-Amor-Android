@@ -2,7 +2,6 @@ package com.example.pratodoamorandroid.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -12,14 +11,12 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -33,16 +30,16 @@ import com.example.pratodoamorandroid.ui.theme.ColorLabel
 @Composable
 fun TextFieldComponent(
     isPassword: Boolean = true,
-    modifier: Modifier = Modifier,
+    onValueChange: (String) -> Unit,
+    value: String = "",
     painterForImage: Painter = painterResource(R.drawable.icon_1),
     textLabel: String = "nome@exemplo.com"
 ) {
-    var texto by remember { mutableStateOf("") }
     var passwordVisible  by remember { mutableStateOf(false) }
 
     OutlinedTextField(
-        value = texto,
-        onValueChange = { texto = it },
+        value = value,
+        onValueChange = { onValueChange },
         placeholder = { Text(textLabel, color = ColorLabel) },
         leadingIcon = {
             Image(
@@ -74,5 +71,8 @@ fun TextFieldComponent(
 @Preview(showBackground = true)
 @Composable
 private fun TextFieldComponentPreview() {
-    TextFieldComponent()
+    TextFieldComponent(
+        onValueChange = TODO(),
+        value = TODO(),
+    )
 }
