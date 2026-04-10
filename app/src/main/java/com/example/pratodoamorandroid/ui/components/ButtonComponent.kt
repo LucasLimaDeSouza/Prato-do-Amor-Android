@@ -5,7 +5,9 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,20 +21,27 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.pratodoamorandroid.R
-import com.example.pratodoamorandroid.ui.theme.ColorText
+import com.example.pratodoamorandroid.ui.theme.TextColor
 import com.example.pratodoamorandroid.ui.theme.RedHeart
+import com.example.pratodoamorandroid.ui.theme.RedTitle
 
 @Composable
 fun ButtonComponent(
     onClick: () -> Unit,
     text: @Composable () -> Unit,
-    painterForImage: Painter = painterResource(R.drawable.icon_enter)
+    width: Dp = 294.dp,
+    backgroundColor: Color = RedTitle,
+    navController: NavHostController
 ) {
 
     val interactionSource = remember { MutableInteractionSource() }
@@ -47,13 +56,14 @@ fun ButtonComponent(
     Button(
         onClick = onClick,
         modifier = Modifier
-            .width(294.dp)
+//            .padding(5.dp)
+            .width(width)
             .height(56.dp),
 //        enabled = ,
         shape = RoundedCornerShape(26.dp),
         colors = ButtonDefaults.buttonColors(
 //            containerColor = if (isPressed) Color.Red else Color.Blue
-            containerColor = RedHeart
+            containerColor = backgroundColor
         ),
 //        elevation = ,
 //        border = ,
@@ -61,22 +71,38 @@ fun ButtonComponent(
         interactionSource = interactionSource
     ) {
         text()
+
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-private fun ButtonComponentPreview() {
-    ButtonComponent(
-        onClick = {},
-        text = {
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                TextComponent(text = "Entrar", color = ColorText, fontSize = 18.sp, letterSpacing = 0.sp)
-                Image(modifier = Modifier
-                    .size(18.dp),contentDescription = "", painter = painterResource(R.drawable.icon_enter))
-            }
-        }
-    )
-}
+//@Preview(showBackground = true)
+//@Composable
+//private fun ButtonComponentPreview() {
+//    ButtonComponent(
+//        onClick = {},
+//        navController = NavHostController(LocalContext.current),
+//        width = 294.dp,
+//        text = {
+//            Row(
+//                modifier = Modifier
+//                    .padding(6.dp),
+//                verticalAlignment = Alignment.CenterVertically,
+//            ) {
+//                TextComponent(
+//                    text = "Entrar",
+//                    color = TextColor,
+//                    fontSize = 18.sp,
+//                    letterSpacing = 0.sp,
+//                    navController = navController,
+//                )
+//                Spacer(modifier = Modifier.width(8.dp))
+//                Image(
+//                    modifier = Modifier
+//                        .size(18.dp),
+//                    contentDescription = "",
+//                    painter = painterResource(R.drawable.icon_enter)
+//                )
+//            }
+//        }
+//    )
+//}

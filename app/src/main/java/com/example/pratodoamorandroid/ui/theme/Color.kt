@@ -12,5 +12,9 @@ val Pink40 = Color(0xFF7D5260)
 
 // PROJECT SOURCES
 val RedHeart = Color(0xFF570000)
+val RedTitle = Color(0xFF570000)
+val GreyText = Color(0xFF5A413D)
 val ColorLabel = Color(0x808E706C)
-val ColorText = Color(0xFFFFFFFF)
+val BlackText = Color(0xFF1B1C1A)
+val TextColor = Color(0xFFFFFFFF)
+val BackgroundColor = Color(0xFFFBF9F5)
