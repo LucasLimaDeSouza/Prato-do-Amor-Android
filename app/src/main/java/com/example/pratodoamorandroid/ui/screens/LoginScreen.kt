@@ -63,11 +63,11 @@ fun LoginScreen(
 
                     ImageComponent()
                     Spacer(modifier = Modifier.height(35.3.dp))
-                    TextComponent(navController)
+                    TextComponent(navController, letterSpacing = (-1.5).sp)
                     TextComponent(
                         isTitleOrNo = false,
                         text = "Plataforma de Gestão de Cuidados",
-                        fontSize = 14.sp,
+                        fontSize = 14,
                         letterSpacing = 0.sp,
                         fontWeight = FontWeight.Medium,
                         color = GreyText,
@@ -89,7 +89,7 @@ fun LoginScreen(
                     TextComponent(
                         isTitleOrNo = false,
                         text = "E-mail",
-                        fontSize = 14.sp,
+                        fontSize = 14,
                         fontWeight = FontWeight.Bold,
                         letterSpacing = 0.sp,
                         color = BlackText,
@@ -111,7 +111,7 @@ fun LoginScreen(
                         TextComponent(
                             isTitleOrNo = false,
                             text = "Senha",
-                            fontSize = 14.sp,
+                            fontSize = 14,
                             fontWeight = FontWeight.Bold,
                             letterSpacing = 0.sp,
                             color = BlackText,
@@ -120,7 +120,7 @@ fun LoginScreen(
                         TextComponent(
                             isTitleOrNo = true,
                             text = "Esqueceu a senha?",
-                            fontSize = 14.sp,
+                            fontSize = 14,
                             fontWeight = FontWeight.Bold,
                             letterSpacing = 0.sp,
                             color = RedTitle,
@@ -147,7 +147,7 @@ fun LoginScreen(
                                 TextComponent(
                                     text = "Entrar",
                                     color = TextColor,
-                                    fontSize = 18.sp,
+                                    fontSize = 18,
                                     letterSpacing = 0.sp,
                                     navController = navController
                                 )

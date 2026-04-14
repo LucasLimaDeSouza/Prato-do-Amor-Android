@@ -68,7 +68,7 @@ fun RecoverPasswordScreen(
                     TextComponent(
                         isTitleOrNo = false,
                         text = "Recuperação de Senha",
-                        fontSize = 20.sp,
+                        fontSize = 20,
                         letterSpacing = 0.sp,
                         fontWeight = FontWeight.Medium,
                         color = GreyText,
@@ -89,7 +89,7 @@ fun RecoverPasswordScreen(
                     TextComponent(
                         isTitleOrNo = false,
                         text = "E-mail",
-                        fontSize = 14.sp,
+                        fontSize = 14,
                         fontWeight = FontWeight.Bold,
                         letterSpacing = 0.sp,
                         color = BlackText,
@@ -113,7 +113,7 @@ fun RecoverPasswordScreen(
                                 TextComponent(
                                     text = "Enviar",
                                     color = TextColor,
-                                    fontSize = 18.sp,
+                                    fontSize = 18,
                                     letterSpacing = 0.sp,
                                     navController = navController,
                                 )
@@ -130,7 +130,7 @@ fun RecoverPasswordScreen(
                                 TextComponent(
                                     text = "Voltar",
                                     color = TextColor,
-                                    fontSize = 18.sp,
+                                    fontSize = 18,
                                     letterSpacing = 0.sp,
                                     navController = navController
                                 )

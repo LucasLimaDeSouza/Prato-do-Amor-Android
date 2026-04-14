@@ -15,14 +15,15 @@ import com.example.pratodoamorandroid.R
 
 @Composable
 fun ImageComponent(
-    painterForImage: Painter = painterResource(R.drawable.heart)
+    painterForImage: Painter = painterResource(R.drawable.heart),
+    size: Int = 64
 ) {
     Box(
         modifier = Modifier.clip(RoundedCornerShape(26.dp)),
 
     ) {
         Image(
-            modifier = Modifier.size(64.dp),
+            modifier = Modifier.size(size.dp),
             contentDescription = "photo_or_image",
             painter = painterForImage
         )

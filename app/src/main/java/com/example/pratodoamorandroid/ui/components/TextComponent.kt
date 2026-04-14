@@ -24,12 +24,13 @@ fun TextComponent(
     navController: NavHostController,
     isTitleOrNo: Boolean = true,
     text: String = "Prato do Amor",
-    fontSize: TextUnit = 30.sp,
+    fontSize: Int = 30,
     fontWeight: FontWeight = FontWeight.ExtraBold,
-    letterSpacing: TextUnit = (-1.5).sp,
+    letterSpacing: TextUnit = 0.sp,
     color: Color = RedHeart,
     isClickable: Boolean = false,
-    nextPage: String = ""
+    nextPage: String = "",
+    alignCenter: Boolean = true
 ) {
     val manropeFamily = FontFamily(
         Font(
@@ -52,11 +53,11 @@ fun TextComponent(
     Text(
         fontFamily =  if(isTitleOrNo == true) manropeFamily else interFamily,
         text = text,
-        fontSize = fontSize,
+        fontSize = fontSize.sp,
         fontWeight = fontWeight,
         letterSpacing = letterSpacing,
         color = color,
-        textAlign = TextAlign.Center,
+        textAlign = if (alignCenter) TextAlign.Center else TextAlign.Start,
         modifier = Modifier
             .clickable(
                 enabled = isClickable,
