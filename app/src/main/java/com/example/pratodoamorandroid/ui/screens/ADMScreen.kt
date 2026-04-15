@@ -66,7 +66,7 @@ fun ADMScreen(
                             size = 20
 
                         )
-                        Spacer(modifier = Modifier.width(26.dp))
+                        Spacer(modifier = Modifier.width(12.dp))
                         TextComponent(
                             text = "Voltar",
                             fontSize = 20,
@@ -113,6 +113,7 @@ fun ADMScreen(
                             fontSize = 24,
                             isTitleOrNo = true,
                             color = BlackText,
+                            alignCenter = true,
                             navController = navHostController
                         )
                         TextComponent(
@@ -121,6 +122,7 @@ fun ADMScreen(
                             fontWeight = FontWeight.Medium,
                             isTitleOrNo = false,
                             color = GreyText,
+                            alignCenter = true,
                             navController = navHostController
                         )
                         Spacer(modifier = Modifier.height(8.dp))
@@ -130,16 +132,16 @@ fun ADMScreen(
                             fontWeight = FontWeight.Medium,
                             letterSpacing = 2.4.sp,
                             isTitleOrNo = false,
+                            alignCenter = true,
                             color = GreyText,
                             navController = navHostController
                         )
                     }
 
                 }
-//                Spacer(modifier = Modifier.height(48.dp))
                 Box(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxSize(),
                     contentAlignment = Alignment.TopCenter
                 ) {
                     Row(
@@ -271,6 +273,7 @@ fun ADMScreen(
                                         },
                                         navController = navHostController
                                     )
+                                    Spacer(modifier = Modifier.height(180.dp))
                                 }
                             }
                         }

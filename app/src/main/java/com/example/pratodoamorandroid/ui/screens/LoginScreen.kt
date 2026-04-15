@@ -71,7 +71,6 @@ fun LoginScreen(
                         letterSpacing = 0.sp,
                         fontWeight = FontWeight.Medium,
                         color = GreyText,
-                        navController = navController
 
                     )
 
@@ -136,7 +135,7 @@ fun LoginScreen(
                         textLabel = TypeTextLabelEnum.PASSWORD,
                         value = ""
                     )
-                    Spacer(modifier = Modifier.height(68.dp))
+                    Spacer(modifier = Modifier.height(48.dp))
                     ButtonComponent(
                         onClick = {},
                         text = {

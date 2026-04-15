@@ -5,6 +5,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -21,7 +22,7 @@ import com.example.pratodoamorandroid.ui.theme.RedHeart
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun TextComponent(
-    navController: NavHostController,
+    navController: NavHostController = NavHostController(LocalContext.current),
     isTitleOrNo: Boolean = true,
     text: String = "Prato do Amor",
     fontSize: Int = 30,
