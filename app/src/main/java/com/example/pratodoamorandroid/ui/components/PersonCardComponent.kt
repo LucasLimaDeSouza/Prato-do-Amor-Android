@@ -30,13 +30,12 @@ import com.example.pratodoamorandroid.ui.theme.GreyText
 import com.example.pratodoamorandroid.ui.theme.RedCard
 
 @Composable
-fun CardPersonComponent(
+fun PersonCardComponent(
     navHostController: NavHostController
 ) {
     Card(
         modifier = Modifier
             .height(228.dp)
-            .fillMaxWidth()
             .fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
@@ -156,10 +155,10 @@ fun CardPersonComponent(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(backgroundColor = 0xFF570000, showBackground = true)
 @Composable
-private fun CardPersonComponentPreview() {
-    CardPersonComponent(
+private fun PersonCardComponentPreview() {
+    PersonCardComponent(
         navHostController = NavHostController(context = LocalContext.current)
     )
 }

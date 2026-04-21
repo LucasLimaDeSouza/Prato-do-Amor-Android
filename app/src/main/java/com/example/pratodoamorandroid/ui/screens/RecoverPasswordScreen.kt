@@ -1,10 +1,8 @@
 package com.example.pratodoamorandroid.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,7 +29,6 @@ import com.example.pratodoamorandroid.ui.navigation.Screen
 import com.example.pratodoamorandroid.ui.theme.BackgroundColor
 import com.example.pratodoamorandroid.ui.theme.BlackText
 import com.example.pratodoamorandroid.ui.theme.GreyText
-import com.example.pratodoamorandroid.ui.theme.RedTitle
 import com.example.pratodoamorandroid.ui.theme.TextColor
 import com.example.pratodoamorandroid.ui.utils.TypeInputEnum
 import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
@@ -62,13 +59,13 @@ fun RecoverPasswordScreen(
 
                     ImageComponent()
                     Spacer(modifier = Modifier.height(35.3.dp))
-                    TextComponent(navController = navController)
+                    TextComponent(letterSpacing = (-1.5).sp)
 
-                    Spacer(modifier = Modifier.height(15.dp))
+
                     TextComponent(
                         isTitleOrNo = false,
                         text = "Recuperação de Senha",
-                        fontSize = 20,
+                        fontSize = 15,
                         letterSpacing = 0.sp,
                         fontWeight = FontWeight.Medium,
                         color = GreyText,

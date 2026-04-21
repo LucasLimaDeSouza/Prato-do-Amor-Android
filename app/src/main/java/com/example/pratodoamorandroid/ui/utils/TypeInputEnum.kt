@@ -11,3 +11,8 @@ enum class TypeTextLabelEnum(val id: String) {
     EMAIL("nome@exemplo.com"),
     PASSWORD("senha")
 }
+
+enum class TypeTextTitleEnum(val id: String) {
+    TOTAL("TOTAL"),
+    VISITS("VISITAS"),
+}

@@ -13,6 +13,7 @@ import androidx.compose.material.icons.filled.Abc
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Password
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Icon
@@ -39,11 +40,11 @@ import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 
 @Composable
 fun TextFieldComponent(
-    typeInput: TypeInputEnum = TypeInputEnum.PASSWORD,
-    textLabel: TypeTextLabelEnum = TypeTextLabelEnum.PASSWORD,
+    typeInput: TypeInputEnum = TypeInputEnum.STRING,
+    textLabel: TypeTextLabelEnum = TypeTextLabelEnum.STRING,
     onValueChange: (String) -> Unit,
     value: String = "",
-//    painterForImage: Painter = painterResource(R.drawable.icon_1),
+    isSearch: Boolean = true,
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
 
@@ -75,7 +76,13 @@ fun TextFieldComponent(
                 when (typeInput) {
                     TypeInputEnum.PASSWORD -> Icon(Icons.Filled.Lock, null)
                     TypeInputEnum.EMAIL -> Icon(Icons.Filled.Email, null)
-                    TypeInputEnum.STRING -> Icon(Icons.Filled.Abc, null)
+                    TypeInputEnum.STRING -> {
+                        if(!isSearch) {
+                            Icon(Icons.Filled.Abc, null)
+                        } else {
+                            Icon(Icons.Filled.Search, null)
+                        }
+                    }
                 }
             },
             shape = RoundedCornerShape(16.dp),
