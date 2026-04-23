@@ -12,7 +12,15 @@ enum class TypeTextLabelEnum(val id: String) {
     PASSWORD("senha")
 }
 
-enum class TypeTextTitleEnum(val id: String) {
+enum class TextLabelEnum(val id: String) {
+    SEARCH("Buscar por nome ou endereço..."),
+    IDENTIFICATION("Como a pessoa prefere ser chamada?"),
+    LOCATION("Ex: Praça Central, Marquise do Banco..."),
+    DETAILSOFVISIT("Ex: Tatuagem no braço, vestindo casaco azul..."),
+    ABOUTVISIT("detalhes sobre o atendimento...")
+}
+
+enum class TextTitleEnum(val id: String) {
     TOTAL("TOTAL"),
     VISITS("VISITAS"),
 }

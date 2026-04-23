@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -31,12 +30,12 @@ import com.example.pratodoamorandroid.ui.theme.RedCard
 
 @Composable
 fun PersonCardComponent(
-    navHostController: NavHostController
+    navController: NavHostController,
+    name: String = "Maria Eduarda"
 ) {
     Card(
         modifier = Modifier
-            .height(228.dp)
-            .fillMaxWidth(),
+            .height(208.dp),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = CardColor
@@ -59,12 +58,12 @@ fun PersonCardComponent(
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    ImageComponent(size = 126)
+                    ImageComponent(size = 96)
                 }
             }
             Box(
                 modifier = Modifier
-                    .weight(1f)
+                    .weight(1.5f)
                     .fillMaxHeight()
                     .padding(12.dp)
             ) {
@@ -77,7 +76,7 @@ fun PersonCardComponent(
                         item {
 
                             TextComponent(
-                                text = "Maria Eduarda",
+                                text = name,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 20,
                                 isTitleOrNo = true,
@@ -103,8 +102,9 @@ fun PersonCardComponent(
 
                             Card(
                                 modifier = Modifier
-                                    .width(196.dp)
-                                    .height(140.dp),
+                                    .fillMaxWidth()
+                                    .height(140.dp)
+                                    .padding(4.dp, 0.dp, 0.dp, 0.dp),
                                 colors = CardDefaults.cardColors(
                                     containerColor = BackgroundCard
                                 ),
@@ -125,6 +125,13 @@ fun PersonCardComponent(
                                         color = GreyText,
                                         alignCenter = false,
                                     )
+
+                                    /*
+                                    * IMPLEMENTAR UMA LISTA DE AJUDAS APLICADAS
+                                    * E FINALIZAR COM "e mais..." AO LADO DA ULTIMA
+                                    *  QUANDO PASSAR DE 3 (TRÊS).
+                                    * */
+
                                     TextComponent(
                                         text = "Cesta Básica &\n" +
                                                 "Medicamentos de uso\n" +
@@ -159,6 +166,6 @@ fun PersonCardComponent(
 @Composable
 private fun PersonCardComponentPreview() {
     PersonCardComponent(
-        navHostController = NavHostController(context = LocalContext.current)
+        navController = NavHostController(context = LocalContext.current)
     )
 }

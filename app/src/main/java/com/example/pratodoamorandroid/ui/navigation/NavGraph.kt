@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pratodoamorandroid.ui.screens.ADMScreen
 import com.example.pratodoamorandroid.ui.screens.LoginScreen
+import com.example.pratodoamorandroid.ui.screens.PeoplesScreen
 import com.example.pratodoamorandroid.ui.screens.RecoverPasswordScreen
 
 
@@ -17,15 +18,19 @@ fun NavGraph(navController: NavHostController) {
         startDestination = Screen.ADMScreen.route,
     ) {
         composable(Screen.LoginScreen.route) {
-            LoginScreen(navController)
+            LoginScreen(navController = navController)
+        }
+
+        composable(Screen.PeoplesScreen.route) {
+            PeoplesScreen(navController = navController)
         }
 
         composable(Screen.RecoverPasswordScreen.route) {
-            RecoverPasswordScreen(navController)
+            RecoverPasswordScreen(navController = navController)
         }
 
         composable(Screen.ADMScreen.route) {
-            ADMScreen(navController)
+            ADMScreen(navController = navController)
         }
 
     }

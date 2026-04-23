@@ -35,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pratodoamorandroid.R
 import com.example.pratodoamorandroid.ui.theme.ColorLabel
+import com.example.pratodoamorandroid.ui.utils.TextLabelEnum
 import com.example.pratodoamorandroid.ui.utils.TypeInputEnum
 import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 
@@ -42,9 +43,11 @@ import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 fun TextFieldComponent(
     typeInput: TypeInputEnum = TypeInputEnum.STRING,
     textLabel: TypeTextLabelEnum = TypeTextLabelEnum.STRING,
+    simpleTextLabel: TextLabelEnum = TextLabelEnum.ABOUTVISIT,
     onValueChange: (String) -> Unit,
     value: String = "",
-    isSearch: Boolean = true,
+    isSearch: Boolean = false,
+    singleLine: Boolean = true,
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
 
@@ -68,7 +71,7 @@ fun TextFieldComponent(
                     }
 
                     TypeTextLabelEnum.STRING -> {
-                        Text(text = TypeTextLabelEnum.STRING.id, color = ColorLabel)
+                        Text(text = simpleTextLabel.id, color = ColorLabel)
                     }
                 }
             },
@@ -77,7 +80,7 @@ fun TextFieldComponent(
                     TypeInputEnum.PASSWORD -> Icon(Icons.Filled.Lock, null)
                     TypeInputEnum.EMAIL -> Icon(Icons.Filled.Email, null)
                     TypeInputEnum.STRING -> {
-                        if(!isSearch) {
+                        if (!isSearch) {
                             Icon(Icons.Filled.Abc, null)
                         } else {
                             Icon(Icons.Filled.Search, null)
@@ -109,7 +112,7 @@ fun TextFieldComponent(
                     }
                 }
             },
-            singleLine = true
+            singleLine = singleLine
         )
     }
 }

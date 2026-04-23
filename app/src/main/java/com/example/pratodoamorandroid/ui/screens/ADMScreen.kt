@@ -46,7 +46,7 @@ import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ADMScreen(
-    navHostController: NavHostController
+    navController: NavHostController
 ) {
     Scaffold(
         topBar = {
@@ -69,9 +69,9 @@ fun ADMScreen(
                         TextComponent(
                             text = "Voltar",
                             fontSize = 20,
-                            navController = navHostController,
+                            navController = navController,
                             isClickable = true,
-                            nextPage = Screen.LoginScreen.route
+                            nextPage = Screen.PeoplesScreen.route
                         )
                     }
                 },
@@ -113,7 +113,7 @@ fun ADMScreen(
                             isTitleOrNo = true,
                             color = BlackText,
                             alignCenter = true,
-                            navController = navHostController
+
                         )
                         TextComponent(
                             text = "Configurações",
@@ -122,7 +122,7 @@ fun ADMScreen(
                             isTitleOrNo = false,
                             color = GreyText,
                             alignCenter = true,
-                            navController = navHostController
+
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         TextComponent(
@@ -133,7 +133,6 @@ fun ADMScreen(
                             isTitleOrNo = false,
                             alignCenter = true,
                             color = GreyText,
-                            navController = navHostController
                         )
                     }
 
@@ -162,7 +161,6 @@ fun ADMScreen(
                             fontSize = 18,
                             isTitleOrNo = true,
                             color = BlackText,
-                            navController = navHostController
                         )
                     }
 
@@ -191,7 +189,6 @@ fun ADMScreen(
                                         fontWeight = FontWeight.Bold,
                                         isTitleOrNo = true,
                                         color = RedTitle,
-                                        navController = navHostController
                                     )
                                     Spacer(modifier = Modifier.height(7.dp))
                                     TextComponent(
@@ -204,7 +201,7 @@ fun ADMScreen(
                                         fontWeight = FontWeight.Bold,
                                         letterSpacing = 1.sp,
                                         color = GreyText,
-                                        navController = navHostController,
+
                                         alignCenter = false
                                     )
                                     Spacer(modifier = Modifier.height(32.dp))
@@ -215,8 +212,8 @@ fun ADMScreen(
                                         fontWeight = FontWeight.Bold,
                                         letterSpacing = 0.sp,
                                         color = BlackText,
-                                        navController = navHostController
-                                    )
+
+                                        )
                                     Spacer(modifier = Modifier.height(8.dp))
                                     TextFieldComponent(
                                         typeInput = TypeInputEnum.PASSWORD,
@@ -232,8 +229,8 @@ fun ADMScreen(
                                         fontWeight = FontWeight.Bold,
                                         letterSpacing = 0.sp,
                                         color = BlackText,
-                                        navController = navHostController
-                                    )
+
+                                        )
                                     Spacer(modifier = Modifier.height(8.dp))
                                     TextFieldComponent(
                                         typeInput = TypeInputEnum.PASSWORD,
@@ -249,8 +246,8 @@ fun ADMScreen(
                                         fontWeight = FontWeight.Bold,
                                         letterSpacing = 0.sp,
                                         color = BlackText,
-                                        navController = navHostController
-                                    )
+
+                                        )
                                     Spacer(modifier = Modifier.height(8.dp))
                                     TextFieldComponent(
                                         typeInput = TypeInputEnum.PASSWORD,
@@ -267,10 +264,9 @@ fun ADMScreen(
                                                 color = TextColor,
                                                 fontSize = 18,
                                                 letterSpacing = 0.sp,
-                                                navController = navHostController
                                             )
                                         },
-                                        navController = navHostController
+                                        navController = navController
                                     )
                                     Spacer(modifier = Modifier.height(180.dp))
                                 }
@@ -289,7 +285,7 @@ fun ADMScreen(
 @Composable
 private fun ADMScreenPreview() {
     ADMScreen(
-        navHostController = NavHostController(LocalContext.current)
+        navController = NavHostController(LocalContext.current)
     )
 
 }

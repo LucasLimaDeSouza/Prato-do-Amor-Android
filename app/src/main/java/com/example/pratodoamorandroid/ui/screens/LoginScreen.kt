@@ -63,7 +63,7 @@ fun LoginScreen(
 
                     ImageComponent()
                     Spacer(modifier = Modifier.height(35.3.dp))
-                    TextComponent(letterSpacing = (-1.5).sp)
+                    TextComponent(letterSpacing = (-0.5).sp)
                     TextComponent(
                         isTitleOrNo = false,
                         text = "Plataforma de Gestão de Cuidados",

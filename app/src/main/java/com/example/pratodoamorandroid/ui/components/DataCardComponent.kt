@@ -1,7 +1,9 @@
 package com.example.pratodoamorandroid.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,21 +23,21 @@ import com.example.pratodoamorandroid.ui.theme.BlackText
 import com.example.pratodoamorandroid.ui.theme.CardColor
 import com.example.pratodoamorandroid.ui.theme.GreyText
 import com.example.pratodoamorandroid.ui.theme.RedHeart
-import com.example.pratodoamorandroid.ui.utils.TypeTextTitleEnum
+import com.example.pratodoamorandroid.ui.utils.TextTitleEnum
 
 
 @Composable
 fun DataCardComponent(
     modifier: Modifier = Modifier,
-    title: TypeTextTitleEnum = TypeTextTitleEnum.TOTAL,
+    title: TextTitleEnum = TextTitleEnum.TOTAL,
     data: String = "1,284",
     isTotal: Boolean = true
 ) {
 
+
     Card(
         modifier = modifier
-            .height(106.dp)
-            .width(171.dp),
+            .height(96.dp),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = CardColor
@@ -43,8 +45,8 @@ fun DataCardComponent(
     ) {
         Column(
             Modifier
-                .fillMaxSize()
-                .padding(24.dp),
+                .padding(24.dp)
+                .fillMaxSize(),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center
         ) {
@@ -52,7 +54,7 @@ fun DataCardComponent(
                 isTitleOrNo = false,
                 text = title.id,
                 fontSize = 12,
-                fontWeight = FontWeight.SemiBold,
+                fontWeight = FontWeight.ExtraBold,
                 letterSpacing = 1.2.sp,
                 color = GreyText
             )
@@ -60,7 +62,7 @@ fun DataCardComponent(
             TextComponent(
                 isTitleOrNo = false,
                 text = data,
-                fontSize = 30,
+                fontSize = 20,
                 fontWeight = FontWeight.SemiBold,
                 color = if (isTotal) RedHeart else BlackText
             )

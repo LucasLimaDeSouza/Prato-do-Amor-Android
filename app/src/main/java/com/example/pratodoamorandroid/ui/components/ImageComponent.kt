@@ -1,6 +1,7 @@
 package com.example.pratodoamorandroid.ui.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,14 +17,19 @@ import com.example.pratodoamorandroid.R
 @Composable
 fun ImageComponent(
     painterForImage: Painter = painterResource(R.drawable.heart),
-    size: Int = 64
+    size: Int = 64,
+    onClick: () -> Unit = {}
 ) {
     Box(
         modifier = Modifier.clip(RoundedCornerShape(26.dp)),
 
     ) {
         Image(
-            modifier = Modifier.size(size.dp),
+            modifier = Modifier
+                .size(size.dp)
+                .clickable(
+                    onClick = onClick
+                ),
             contentDescription = "photo_or_image",
             painter = painterForImage
         )
