@@ -1,18 +1,13 @@
 package com.example.pratodoamorandroid.ui.components
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Abc
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Password
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -26,16 +21,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.pratodoamorandroid.R
 import com.example.pratodoamorandroid.ui.theme.ColorLabel
-import com.example.pratodoamorandroid.ui.utils.TextLabelEnum
 import com.example.pratodoamorandroid.ui.utils.TypeInputEnum
 import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 
@@ -43,7 +34,6 @@ import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 fun TextFieldComponent(
     typeInput: TypeInputEnum = TypeInputEnum.STRING,
     textLabel: TypeTextLabelEnum = TypeTextLabelEnum.STRING,
-    simpleTextLabel: TextLabelEnum = TextLabelEnum.ABOUTVISIT,
     onValueChange: (String) -> Unit,
     value: String = "",
     isSearch: Boolean = false,
@@ -61,36 +51,44 @@ fun TextFieldComponent(
             value = value,
             onValueChange = onValueChange,
             placeholder = {
-                when (textLabel) {
-                    TypeTextLabelEnum.EMAIL -> {
-                        Text(text = TypeTextLabelEnum.EMAIL.id, color = ColorLabel)
-                    }
-
-                    TypeTextLabelEnum.PASSWORD -> {
-                        Text(text = TypeTextLabelEnum.PASSWORD.id, color = ColorLabel)
-                    }
-
-                    TypeTextLabelEnum.STRING -> {
-                        Text(text = simpleTextLabel.id, color = ColorLabel)
-                    }
-                }
+                Text(
+                    text = textLabel.id,
+                    color = ColorLabel,
+                    modifier = Modifier.fillMaxWidth()
+                )
             },
-            leadingIcon = {
+            leadingIcon = if (isSearch) {
+                { Icon(Icons.Filled.Search, contentDescription = null) }
+            } else {
                 when (typeInput) {
-                    TypeInputEnum.PASSWORD -> Icon(Icons.Filled.Lock, null)
-                    TypeInputEnum.EMAIL -> Icon(Icons.Filled.Email, null)
-                    TypeInputEnum.STRING -> {
-                        if (!isSearch) {
-                            Icon(Icons.Filled.Abc, null)
-                        } else {
-                            Icon(Icons.Filled.Search, null)
-                        }
+                    TypeInputEnum.PASSWORD -> {
+                        { Icon(Icons.Filled.Lock, null) }
                     }
+
+                    TypeInputEnum.EMAIL -> {
+                        { Icon(Icons.Filled.Email, null) }
+                    }
+
+                    TypeInputEnum.STRING -> {
+                        when (textLabel) {
+                            TypeTextLabelEnum.SEARCH -> {
+                                { Icon(Icons.Filled.Search, null) }
+                            }
+
+                            TypeTextLabelEnum.LOCATION -> {
+                                { Icon(Icons.Filled.LocationOn, null) }
+                            }
+
+                            else -> null
+                        }
+
+                    }
+//                    TypeInputEnum.LOCATION -> { { Icon(Icons.Filled.LocationOn, null) } }
+
                 }
             },
             shape = RoundedCornerShape(16.dp),
             modifier = Modifier
-                .height(56.dp)
                 .fillMaxWidth(),
             visualTransformation = when (typeInput) {
                 TypeInputEnum.PASSWORD -> if (!passwordVisible) PasswordVisualTransformation() else VisualTransformation.None

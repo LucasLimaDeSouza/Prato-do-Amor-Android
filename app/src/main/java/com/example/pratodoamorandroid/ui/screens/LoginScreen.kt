@@ -137,7 +137,9 @@ fun LoginScreen(
                     )
                     Spacer(modifier = Modifier.height(48.dp))
                     ButtonComponent(
-                        onClick = {},
+                        onClick = {
+                            navController.navigate(route = Screen.PeoplesScreen.route)
+                        },
                         text = {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,

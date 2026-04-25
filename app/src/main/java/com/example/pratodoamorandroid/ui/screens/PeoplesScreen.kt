@@ -48,8 +48,8 @@ import com.example.pratodoamorandroid.ui.theme.GreyText
 import com.example.pratodoamorandroid.ui.theme.RedHeart
 import com.example.pratodoamorandroid.ui.theme.TextColor
 import com.example.pratodoamorandroid.ui.utils.Destination
-import com.example.pratodoamorandroid.ui.utils.TextLabelEnum
 import com.example.pratodoamorandroid.ui.utils.TextTitleEnum
+import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 
 
 @Composable
@@ -108,7 +108,13 @@ fun PeoplesScreen(
             }
         },
         floatingActionButton = {
-            ImageComponent(painterForImage = painterResource(R.drawable.add_people_button), size = 104)
+            ImageComponent(
+                painterForImage = painterResource(R.drawable.add_people_button),
+                size = 104,
+                onClick = {
+                    navController.navigate(route = Screen.PeopleCadasterScreen.route)
+                }
+            )
         }
     ) { paddingValues ->
         Surface(
@@ -162,8 +168,8 @@ fun PeoplesScreen(
                         TextFieldComponent(
                             value = "",
                             onValueChange = {},
-                            simpleTextLabel = TextLabelEnum.SEARCH,
-                            isSearch = true
+                            isSearch = true,
+                            textLabel = TypeTextLabelEnum.SEARCH
                         )
 
                         Spacer(
@@ -176,7 +182,10 @@ fun PeoplesScreen(
                             modifier = Modifier.fillMaxSize()
                         ) {
                             items(10) {
-                                PersonCardComponent(name = "Maria do Carmo da Silva Nogueira",navController = navController)
+                                PersonCardComponent(
+                                    name = "Maria do Carmo da Silva Nogueira",
+                                    navController = navController
+                                )
                                 Spacer(
                                     modifier = Modifier
                                         .height(12.dp)

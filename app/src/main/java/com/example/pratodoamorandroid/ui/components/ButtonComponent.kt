@@ -6,6 +6,7 @@ import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -37,11 +38,11 @@ import com.example.pratodoamorandroid.ui.theme.RedTitle
 
 @Composable
 fun ButtonComponent(
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
     text: @Composable () -> Unit,
-    width: Dp = 294.dp,
     backgroundColor: Color = RedTitle,
-    navController: NavHostController
+    navController: NavHostController = NavHostController(LocalContext.current),
 ) {
 
     val interactionSource = remember { MutableInteractionSource() }
@@ -55,15 +56,14 @@ fun ButtonComponent(
 
     Button(
         onClick = onClick,
-        modifier = Modifier
+        modifier = modifier
 //            .padding(5.dp)
-            .width(width)
+            .fillMaxWidth()
             .height(56.dp),
 //        enabled = ,
-        shape = RoundedCornerShape(26.dp),
+        shape = RoundedCornerShape(12.dp),
         colors = ButtonDefaults.buttonColors(
-//            containerColor = if (isPressed) Color.Red else Color.Blue
-            containerColor = backgroundColor
+            containerColor = if (isPressed) Color.Red else backgroundColor,
         ),
 //        elevation = ,
 //        border = ,
@@ -71,38 +71,36 @@ fun ButtonComponent(
         interactionSource = interactionSource
     ) {
         text()
-
     }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//private fun ButtonComponentPreview() {
-//    ButtonComponent(
-//        onClick = {},
-//        navController = NavHostController(LocalContext.current),
-//        width = 294.dp,
-//        text = {
-//            Row(
-//                modifier = Modifier
-//                    .padding(6.dp),
-//                verticalAlignment = Alignment.CenterVertically,
-//            ) {
-//                TextComponent(
-//                    text = "Entrar",
-//                    color = TextColor,
-//                    fontSize = 18.sp,
-//                    letterSpacing = 0.sp,
-//                    navController = navController,
-//                )
-//                Spacer(modifier = Modifier.width(8.dp))
-//                Image(
-//                    modifier = Modifier
-//                        .size(18.dp),
-//                    contentDescription = "",
-//                    painter = painterResource(R.drawable.icon_enter)
-//                )
-//            }
-//        }
-//    )
-//}
+@Preview(showBackground = true)
+@Composable
+private fun ButtonComponentPreview() {
+    ButtonComponent(
+        onClick = {},
+        navController = NavHostController(LocalContext.current),
+        text = {
+            Row(
+                modifier = Modifier
+                    .padding(6.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                TextComponent(
+                    text = "Entrar",
+                    color = TextColor,
+                    fontSize = 18,
+                    letterSpacing = 0.sp,
+
+                    )
+                Spacer(modifier = Modifier.width(8.dp))
+                Image(
+                    modifier = Modifier
+                        .size(18.dp),
+                    contentDescription = "",
+                    painter = painterResource(R.drawable.icon_enter)
+                )
+            }
+        }
+    )
+}
