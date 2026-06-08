@@ -6,6 +6,12 @@ enum class TypeInputEnum(val id: Int) {
     PASSWORD(2),
 }
 
+enum class TypePainterIdEnum(val id: String) {
+    FOOD("Ajuda Alimentícia"),
+    BATH("Ajuda de Higiene"),
+    MED("Ajuda de Medicamento"),
+}
+
 enum class TypeTextLabelEnum(val id: String) {
     STRING(""),
     EMAIL("nome@exemplo.com"),
@@ -21,4 +27,10 @@ enum class TypeTextLabelEnum(val id: String) {
 enum class TextTitleEnum(val id: String) {
     TOTAL("TOTAL"),
     VISITS("VISITAS"),
+}
+
+enum class TypeSexEnum(val id: String) {
+    M("Masculino"),
+    F("Feminino"),
+    O("Outro"),
 }

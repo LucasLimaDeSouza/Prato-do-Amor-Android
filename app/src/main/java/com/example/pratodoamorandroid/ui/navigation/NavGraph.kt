@@ -8,7 +8,9 @@ import com.example.pratodoamorandroid.ui.screens.ADMScreen
 import com.example.pratodoamorandroid.ui.screens.LoginScreen
 import com.example.pratodoamorandroid.ui.screens.PeoplePerfilScreen
 import com.example.pratodoamorandroid.ui.screens.PeoplesScreen
+import com.example.pratodoamorandroid.ui.screens.ProfileScreen
 import com.example.pratodoamorandroid.ui.screens.RecoverPasswordScreen
+import com.example.pratodoamorandroid.ui.screens.ReportsScreen
 
 
 @Composable
@@ -24,6 +26,14 @@ fun NavGraph(navController: NavHostController) {
 
         composable(Screen.PeoplesScreen.route) {
             PeoplesScreen(navController = navController)
+        }
+
+        composable(Screen.ReportsScreen.route) {
+            ReportsScreen(navController = navController)
+        }
+
+        composable(Screen.ProfileScreen.route) {
+            ProfileScreen(navController = navController)
         }
 
         composable(Screen.PeopleCadasterScreen.route) {

@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -34,12 +33,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import com.example.pratodoamorandroid.ui.components.ImageComponent
-import com.example.pratodoamorandroid.ui.components.TextComponent
 import com.example.pratodoamorandroid.R
-import com.example.pratodoamorandroid.ui.components.DataCardComponent
+import com.example.pratodoamorandroid.ui.components.ImageComponent
 import com.example.pratodoamorandroid.ui.components.PersonCardComponent
+import com.example.pratodoamorandroid.ui.components.TextComponent
 import com.example.pratodoamorandroid.ui.components.TextFieldComponent
 import com.example.pratodoamorandroid.ui.navigation.Screen
 import com.example.pratodoamorandroid.ui.theme.BackgroundColor
@@ -48,7 +45,6 @@ import com.example.pratodoamorandroid.ui.theme.GreyText
 import com.example.pratodoamorandroid.ui.theme.RedHeart
 import com.example.pratodoamorandroid.ui.theme.TextColor
 import com.example.pratodoamorandroid.ui.utils.Destination
-import com.example.pratodoamorandroid.ui.utils.TextTitleEnum
 import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 
 
@@ -183,8 +179,15 @@ fun PeoplesScreen(
                         ) {
                             items(10) {
                                 PersonCardComponent(
+                                    navController = navController,
                                     name = "Maria do Carmo da Silva Nogueira",
-                                    navController = navController
+                                    photo = {
+                                        ImageComponent(
+                                            painterForImage = painterResource(R.drawable.ic_launcher_background),
+                                            size = 98
+                                        )
+                                    },
+                                    route = Screen.ProfileScreen.route
                                 )
                                 Spacer(
                                     modifier = Modifier

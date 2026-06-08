@@ -20,6 +20,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -37,6 +38,7 @@ import com.example.pratodoamorandroid.ui.theme.BackgroundColor
 import com.example.pratodoamorandroid.ui.theme.BlackText
 import com.example.pratodoamorandroid.ui.theme.GreyCard
 import com.example.pratodoamorandroid.ui.theme.GreyText
+import com.example.pratodoamorandroid.ui.theme.RedHeart
 import com.example.pratodoamorandroid.ui.theme.RedTitle
 import com.example.pratodoamorandroid.ui.theme.TextColor
 import com.example.pratodoamorandroid.ui.utils.TypeInputEnum
@@ -51,29 +53,18 @@ fun ADMScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = BackgroundColor
                 ),
                 title = {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-//                        content = TENTAR TORNAR TUDO CLICAVEL
-                    ) {
-                        ImageComponent(
-                            painterForImage = painterResource(R.drawable.baseline_arrow_back_24),
-                            size = 20
+                    ImageComponent(
+                        painterForImage = painterResource(R.drawable.baseline_arrow_back_24),
+                        size = 45,
+                        onClick = {
+                            navController.navigate(route = Screen.PeoplesScreen.route)
+                        }
+                    )
 
-                        )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        TextComponent(
-                            text = "Voltar",
-                            fontSize = 20,
-                            navController = navController,
-                            isClickable = true,
-                            nextPage = Screen.PeoplesScreen.route
-                        )
-                    }
                 },
                 expandedHeight = 48.dp,
             )
@@ -114,7 +105,7 @@ fun ADMScreen(
                             color = BlackText,
                             alignCenter = true,
 
-                        )
+                            )
                         TextComponent(
                             text = "Configurações",
                             fontSize = 16,
@@ -123,7 +114,7 @@ fun ADMScreen(
                             color = GreyText,
                             alignCenter = true,
 
-                        )
+                            )
                         Spacer(modifier = Modifier.height(8.dp))
                         TextComponent(
                             text = "PRATO DO AMOR ANDROID v1.0.0",
@@ -257,6 +248,13 @@ fun ADMScreen(
                                     )
                                     Spacer(modifier = Modifier.height(40.dp))
                                     ButtonComponent(
+                                        modifier = Modifier
+                                            .shadow(
+                                                elevation = 8.dp, // Intensidade da sombra
+                                                shape = RoundedCornerShape(12.dp), // Deve ser igual ao shape do botão
+                                                spotColor = BlackText, // Cor da sombra projetada
+                                                ambientColor = RedHeart // Cor da sombra ao redor
+                                            ),
                                         onClick = {},
                                         text = {
                                             TextComponent(

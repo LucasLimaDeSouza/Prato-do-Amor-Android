@@ -18,10 +18,11 @@ import com.example.pratodoamorandroid.R
 fun ImageComponent(
     painterForImage: Painter = painterResource(R.drawable.heart),
     size: Int = 64,
+    roundedCornerShape: Int = 26,
     onClick: () -> Unit = {}
 ) {
     Box(
-        modifier = Modifier.clip(RoundedCornerShape(26.dp)),
+        modifier = Modifier.clip(RoundedCornerShape(roundedCornerShape.dp)),
 
     ) {
         Image(

@@ -14,40 +14,43 @@ import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.pratodoamorandroid.ui.theme.BlackText
 import com.example.pratodoamorandroid.ui.theme.ColorLabel
 import com.example.pratodoamorandroid.ui.utils.TypeInputEnum
 import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 
 @Composable
 fun TextFieldComponent(
+    modifier: Modifier = Modifier,
     typeInput: TypeInputEnum = TypeInputEnum.STRING,
     textLabel: TypeTextLabelEnum = TypeTextLabelEnum.STRING,
     onValueChange: (String) -> Unit,
     value: String = "",
     isSearch: Boolean = false,
     singleLine: Boolean = true,
+    color: Color = BlackText
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
 
 
-    Box(
-        modifier = Modifier.fillMaxWidth()
-    ) {
-
 
         OutlinedTextField(
+            maxLines = if (singleLine) 1 else 5,
             value = value,
             onValueChange = onValueChange,
             placeholder = {
@@ -88,7 +91,7 @@ fun TextFieldComponent(
                 }
             },
             shape = RoundedCornerShape(16.dp),
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth(),
             visualTransformation = when (typeInput) {
                 TypeInputEnum.PASSWORD -> if (!passwordVisible) PasswordVisualTransformation() else VisualTransformation.None
@@ -110,9 +113,13 @@ fun TextFieldComponent(
                     }
                 }
             },
-            singleLine = singleLine
+            singleLine = singleLine,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = color,
+                unfocusedBorderColor = color,
+            )
         )
-    }
+
 }
 
 @Preview(showBackground = true)

@@ -16,34 +16,52 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.pratodoamorandroid.ui.navigation.Screen
 import com.example.pratodoamorandroid.ui.theme.BackgroundCard
 import com.example.pratodoamorandroid.ui.theme.BlackText
 import com.example.pratodoamorandroid.ui.theme.CardColor
 import com.example.pratodoamorandroid.ui.theme.GreyText
 import com.example.pratodoamorandroid.ui.theme.RedCard
+import com.example.pratodoamorandroid.ui.theme.RedHeart
 
 @Composable
 fun PersonCardComponent(
     navController: NavHostController,
-    name: String = "Maria Eduarda"
+    name: String = "Maria Eduarda",
+    photo: @Composable () -> Unit = {
+        ImageComponent(size = 96)
+    },
+    route: String = ""
+
 ) {
     Card(
         modifier = Modifier
-            .height(208.dp),
+            .height(208.dp)
+            .shadow(
+                elevation = 8.dp, // Intensidade da sombra
+                shape = RoundedCornerShape(12.dp), // Deve ser igual ao shape do botão
+                spotColor = BlackText, // Cor da sombra projetada
+                ambientColor = RedHeart // Cor da sombra ao redor
+            ),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = CardColor
-        )
+        ),
+        onClick = {
+            navController.navigate(route = route)
+        }
     ) {
         Row(
             modifier = Modifier
                 .fillMaxSize()
+
 
         ) {
             Box(
@@ -54,11 +72,12 @@ fun PersonCardComponent(
                 ) {
                 Column(
                     modifier = Modifier
+                        .padding(12.dp)
                         .fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.End
                 ) {
-                    ImageComponent(size = 96)
+                    photo()
                 }
             }
             Box(
@@ -92,7 +111,10 @@ fun PersonCardComponent(
                             .height(140.dp),
                         colors = CardDefaults.cardColors(
                             containerColor = RedCard
-                        )
+                        ),
+                        onClick = {
+                            navController.navigate(route = route)
+                        }
                     ) {
                         Column(
                             modifier = Modifier
@@ -142,7 +164,7 @@ fun PersonCardComponent(
                                         color = BlackText,
                                         alignCenter = false,
 
-                                    )
+                                        )
                                     TextComponent(
                                         text = "Realizada em 14 Out, 2023",
                                         fontWeight = FontWeight.Bold,

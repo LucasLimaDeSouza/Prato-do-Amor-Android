@@ -22,6 +22,7 @@ import com.example.pratodoamorandroid.ui.theme.RedHeart
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun TextComponent(
+    modifier: Modifier = Modifier,
     navController: NavHostController = NavHostController(LocalContext.current),
     isTitleOrNo: Boolean = true,
     text: String = "Prato do Amor",
@@ -31,7 +32,7 @@ fun TextComponent(
     color: Color = RedHeart,
     isClickable: Boolean = false,
     nextPage: String = "",
-    alignCenter: Boolean = true
+    alignCenter: Boolean = true,
 ) {
     val manropeFamily = FontFamily(
         Font(
@@ -59,7 +60,7 @@ fun TextComponent(
         letterSpacing = letterSpacing,
         color = color,
         textAlign = if (alignCenter) TextAlign.Center else TextAlign.Start,
-        modifier = Modifier
+        modifier = modifier
             .clickable(
                 enabled = isClickable,
                 onClick = {

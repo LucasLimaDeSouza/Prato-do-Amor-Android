@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -29,6 +31,7 @@ import com.example.pratodoamorandroid.ui.navigation.Screen
 import com.example.pratodoamorandroid.ui.theme.BackgroundColor
 import com.example.pratodoamorandroid.ui.theme.BlackText
 import com.example.pratodoamorandroid.ui.theme.GreyText
+import com.example.pratodoamorandroid.ui.theme.RedHeart
 import com.example.pratodoamorandroid.ui.theme.TextColor
 import com.example.pratodoamorandroid.ui.utils.TypeInputEnum
 import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
@@ -105,6 +108,13 @@ fun RecoverPasswordScreen(
                     Column (modifier = Modifier.fillMaxWidth()) {
 
                         ButtonComponent(
+                            modifier = Modifier
+                                .shadow(
+                                    elevation = 8.dp, // Intensidade da sombra
+                                    shape = RoundedCornerShape(12.dp), // Deve ser igual ao shape do botão
+                                    spotColor = BlackText, // Cor da sombra projetada
+                                    ambientColor = RedHeart // Cor da sombra ao redor
+                                ),
                             onClick = {},
                             text = {
                                 TextComponent(
@@ -120,6 +130,13 @@ fun RecoverPasswordScreen(
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         ButtonComponent(
+                            modifier = Modifier
+                                .shadow(
+                                    elevation = 8.dp, // Intensidade da sombra
+                                    shape = RoundedCornerShape(12.dp), // Deve ser igual ao shape do botão
+                                    spotColor = BlackText, // Cor da sombra projetada
+                                    ambientColor = RedHeart // Cor da sombra ao redor
+                                ),
                             onClick = {
                                 navController.navigate(Screen.LoginScreen.route)
                             },

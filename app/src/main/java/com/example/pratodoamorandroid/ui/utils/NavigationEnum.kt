@@ -14,6 +14,6 @@ enum class Destination(
     val icon: ImageVector,
     val contentDescription: String
 ) {
-    PEOPLES(route = Screen.PeoplesScreen.route, label = "Visits",icon = Icons.Default.Groups, contentDescription = "Atendidos"),
-    REPORTS(route = "reports", label = "Reports", Icons.Default.AutoGraph, contentDescription = "Relatórios")
+    PEOPLES(route = Screen.PeoplesScreen.route, label = "Atendidos",icon = Icons.Default.Groups, contentDescription = "Atendidos"),
+    REPORTS(route = Screen.ReportsScreen.route, label = "Relatórios", Icons.Default.AutoGraph, contentDescription = "Relatórios")
 }
