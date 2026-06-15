@@ -33,7 +33,7 @@ import com.example.pratodoamorandroid.ui.theme.RedHeart
 
 @Composable
 fun PersonCardComponent(
-    navController: NavHostController,
+    navController: NavHostController = NavHostController(LocalContext.current),
     name: String = "Maria Eduarda",
     photo: @Composable () -> Unit = {
         ImageComponent(size = 96)

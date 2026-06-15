@@ -50,13 +50,11 @@ import com.example.pratodoamorandroid.ui.utils.TypeTextLabelEnum
 
 @Composable
 fun PeoplesScreen(
-    modifier: Modifier = Modifier,
     navController: NavHostController
 ) {
     val startDestination = Destination.PEOPLES
     var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }
     Scaffold(
-        modifier = modifier,
         topBar = {
             Row(
                 modifier = Modifier
